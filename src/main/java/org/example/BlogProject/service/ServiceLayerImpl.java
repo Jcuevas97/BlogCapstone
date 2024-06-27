@@ -50,7 +50,7 @@ public class ServiceLayerImpl implements ServiceLayer{
 
     @Override
     public Blog getBlog(int id) {
-        return blogs.getById(id);
+        return blogs.findById(id).get();
     }
 
     @Override
