@@ -7,7 +7,10 @@ import org.example.BlogProject.repositories.AuthorRepository;
 import org.example.BlogProject.repositories.BlogRepository;
 import org.example.BlogProject.repositories.TagRepository;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,6 +49,20 @@ public class ServiceLayerImpl implements ServiceLayer{
     @Override
     public Tag getTagName(String name) {
         return tags.getTagByName(name);
+    }
+    @Override
+    public List<Blog> getBlogByTagName(String name) {
+        List<Blog> BlogWithTagName = new ArrayList<>();
+        List<Blog> blog = blogs.findByApproved();
+        for(Blog B : blog){
+            for( Tag tag : B.getTag()){
+                if(Objects.equals(tag.getTagName(), name)){
+                    BlogWithTagName.add(B);
+                }
+            }
+        }
+
+        return BlogWithTagName;
     }
 
     @Override

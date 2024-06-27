@@ -13,7 +13,8 @@ public interface ServiceLayer {
     public List<Author> getAuthors();
     public List<Tag> getTags();
     public Tag getTag(int id);
-    public Tag getTagName(String name);
+    public List<Blog> getBlogByTagName(String name);
+    public Tag getTagName(String tagName);
     public Blog getBlog(int id);
     public Author getAuthorEmail(String email);
     public void saveBlog(Blog blog);

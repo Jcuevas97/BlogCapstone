@@ -2,6 +2,7 @@ package org.example.BlogProject.models;
 
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class Tag {
     @Column(nullable=false)
     private String tagName;
 
-    @JsonManagedReference
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "blog_tag",
             joinColumns = {@JoinColumn(name = "tag_id")},
