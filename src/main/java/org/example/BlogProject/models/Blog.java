@@ -2,6 +2,7 @@ package org.example.BlogProject.models;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,7 +43,7 @@ public class Blog {
 
 
     @ManyToMany(mappedBy = "blog")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Tag> tag;
 
     public void setBlogId(int blogId) {

@@ -14,7 +14,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -66,9 +65,9 @@ public class AdminController {
 
 
     @GetMapping("/getBlogByTag/{tagName}")
-    public ResponseEntity <Tag> getBlogByTag(@PathVariable String tagName){
-        Tag tag = service.getTagName(tagName);
-        return ResponseEntity.ok(tag);
+    public ResponseEntity <List<Blog>> getBlogByTag(@PathVariable String tagName){
+        List<Blog> blog = service.getBlogByTagName(tagName);
+        return ResponseEntity.ok(blog);
     }
 
 
